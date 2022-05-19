@@ -4,11 +4,23 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+//this is rebuilt
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+//data is not reset here
+class MyAppState extends State<MyApp> {
   var questionIndex = 0;
   //answerQuestionFuction
   void answerQuestion() {
-    questionIndex++;
+    setState(() {
+      questionIndex++;
+    });
     print(questionIndex);
   }
 
