@@ -5,17 +5,19 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
   //answerQuestionFuction
   void answerQuestion() {
-    print('Answer Chosen');
+    questionIndex++;
+    print(questionIndex);
   }
 
-  const MyApp({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
     var questions = [
       'What\'s your favorite color?',
       'What\'s your favorite animal?',
     ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text('The Questions'),
+            Text(questions[questionIndex]),
             ElevatedButton(
               onPressed: answerQuestion,
               child: Text('Answer 1'),
