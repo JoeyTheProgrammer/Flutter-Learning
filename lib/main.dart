@@ -5,6 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  //answerQuestionFuction
+  void answerQuestion() {
+    print('Answer Chosen');
+  }
+
   const MyApp({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
     var questions = [
@@ -20,15 +25,15 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             Text('The Questions'),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 1'),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 2'),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 3'),
             ),
           ],
