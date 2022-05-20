@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 
 //data is not reset here
 class _MyAppState extends State<MyApp> {
-  final questions = [
+  final _questions = [
     //map-> key=>value pair
     {
       'questionText': 'What\'s your favorite color?',
@@ -41,11 +41,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex++;
     });
-    print(_questionIndex);
-
-    if (_questionIndex < questions.length) {
-      print('We have more Questions!');
-    }
   }
 
   Widget build(BuildContext context) {
@@ -54,23 +49,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: <Widget>[
-                  Question(
-                    questions[_questionIndex]['questionText'] as String,
-                  ),
-                  //the elipses adds the values of a list to a list, so
-                  //a list isnt being added to a list
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList()
-                ],
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
               )
-            : Center(
-                child: Text('You did it!'),
-              ),
+            : Result(),
       ),
     );
   }
