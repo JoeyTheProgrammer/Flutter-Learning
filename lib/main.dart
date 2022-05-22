@@ -21,6 +21,12 @@ class MyHomePage extends StatelessWidget {
       amount: 69.99,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't2',
+      title: 'Groceries',
+      amount: 99.99,
+      date: DateTime.now(),
+    ),
   ];
 
   @override
@@ -43,10 +49,13 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          Card(
-            color: Colors.red,
-            child: Text('LIST OF TEXT'),
-          )
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
