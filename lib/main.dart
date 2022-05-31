@@ -1,39 +1,17 @@
 import 'package:flutter/material.dart';
 
+import './screens/products_overview_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
-    var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
-    ];
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First App'),
-        ),
-        body: Column(
-          children: <Widget>[
-            Text('The Questions'),
-            ElevatedButton(
-              onPressed: null,
-              child: Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: Text('Answer 2'),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: Text('Answer 3'),
-            ),
-          ],
-        ),
-      ),
+      title: 'MyShop',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: ProductOverviewScreen(),
     );
   }
 }
