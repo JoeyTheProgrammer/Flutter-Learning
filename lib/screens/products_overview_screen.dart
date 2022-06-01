@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:may_19/providers/cart.dart';
 import 'package:may_19/providers/products.dart';
 import 'package:may_19/screens/cart_screen.dart';
+import 'package:may_19/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/products_grid.dart';
@@ -63,6 +64,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
           ),
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductsGrid(_showOnlyFavorites),
     );
   }
